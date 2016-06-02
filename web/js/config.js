@@ -1,1 +1,1 @@
-var SAMPLE_SERVER_BASE_URL = 'recorddemo.herokuapp.com';
+var SAMPLE_SERVER_BASE_URL = 'https://recorddemo.herokuapp.com';
