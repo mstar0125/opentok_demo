@@ -1,1 +1,1 @@
-var SAMPLE_SERVER_BASE_URL = 'https://recorddemo.herokuapp.com';
+var SAMPLE_SERVER_BASE_URL = '192.168.0.11:8080';
