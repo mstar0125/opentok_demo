@@ -2,7 +2,12 @@ var apiKey,
     sessionId,
     token,
     status,
-    archiveID;
+    archiveID,
+	startTime,
+	endTime,
+	refreshIntervalId,
+	recordTimeInMill = 0,
+	delay = 1000;
 
 $(document).ready(function() {
   $('#stop').hide();
@@ -71,6 +76,20 @@ function startArchive() {
   $.post(SAMPLE_SERVER_BASE_URL + '/start/' + sessionId);
   $('#start').hide();
   $('#stop').show();
+  
+  output = $('#output'),
+  refreshIntervalId = setInterval(function() {
+      recordTimeInMill = recordTimeInMill + delay;
+	  
+	  var totalSec = recordTimeInMill / 1000;
+	  var hours = parseInt( totalSec / 3600 ) % 24;
+	  var minutes = parseInt( totalSec / 60 ) % 60;
+	  var seconds = totalSec % 60;
+
+	  var result = (hours < 10 ? "0" + hours : hours) + ":" + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds  < 10 ? "0" + seconds : seconds);
+	  
+      output.text(result);
+  }, delay);
 }
 
 // Stop recording
@@ -79,6 +98,9 @@ function stopArchive() {
   $('#stop').hide();
   $('#view').prop('disabled', false);
   $('#stop').show();
+  
+  clearInterval(refreshIntervalId);	
+  $('#output').text('');
 }
 
 // Get the archive status. If it is  "available", download it. Otherwise, keep checking

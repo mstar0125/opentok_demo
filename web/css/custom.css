@@ -28,11 +28,41 @@ body, html {
 }
 #buttonholder{
     position: absolute;
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+	margin-bottom: 20px;
+	left:0px;
     bottom: 2px;
-    left: 20px;
     z-index: 200;
+	text-align:center;
 }
 
+#timeholder{
+    position: absolute;
+    width: 100%;
+	height: 40px;
+    margin-left: auto;
+    margin-right: auto;
+	margin-bottom: 50px;
+    bottom: 2px;
+    z-index: 200;
+	text-align:center;
+}
+
+#output{
+    
+	width: 100%;
+    height: 40px
+	position: relative;
+	text-align: center;
+	color: rgb(255,0,0);
+    
+}
+
+#start,
+#stop,
+#view{
+	width: 150px;
+    height: 40px
+}
