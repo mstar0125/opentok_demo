@@ -61,7 +61,8 @@ function initializeSession() {
       var publisher = OT.initPublisher('publisher', {
         insertMode: 'append',
         width: '100%',
-        height: '100%'
+        height: '100%',
+		resolution: '1280x720'
       });
 
       session.publish(publisher);
